@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condição de Idade</title>
+    <link rel="stylesheet" href="exIdadeCondicoes.css">
+</head>
+<body>
+
+    <div id="layout">
+        <h1 style="color: white;">Testador de Idade</h1>
+        <div id="caixacentral">
+            <div class="form">
+                <div style="display: flex; align-items: center; justify-content: flex-start;">
+                    <h2 style="margin-left: 30px;">Ano de Nascimento: </h2>
+                    <input id="idades" type="number" style="display: flex; height: 20px; width: 60px; margin-left: 10px;">
+                </div>
+            </div>
+
+            <div class="form">
+                <div style="display: flex; justify-content: flex-start; align-items: center; gap: 10px; height: 25px;">
+               <h2 style="margin-left: 30px">Sexo: </h2> <p>Masculino</p><input id="sexo" type="radio" value="homem" name="botoes">
+               <p>Feminino</p><input type="radio" value="mulher" name="botoes">
+                </div>
+                
+            </div>
+
+            <div id="botao" style="display: flex; justify-content: flex-start;">
+                <button onclick="mostrarInfos()" style="margin-left: 30px; ">Verificar</button>
+            </div>
+
+            <div style="display: flex; justify-content: center; height: 600px; width: 100%; align-items: center; flex-direction: column;">
+            <p id="texto" style="display: none;">pedro melo</p>
+            
+            <img id="imagem" src="imagens/alien-1534975_1920.jpg" alt="" height="300px" width="300px" style="border-radius: 200px; display: none;">
+            </div>
+
+        </div>
+        <img style="display: none;" id="garoto" src="imagens/boy-2119178_1920.jpg" alt="">
+        <img style="display: none;" id="garota" src="imagens/girl-3901714_1920.jpg" alt="">
+        <img style="display: none;" id="crianco" src="imagens/boy-4302767_1920.jpg" alt="">
+        <img style="display: none;" id="crianca" src="imagens/girl-4302770_1920.jpg" alt="">
+        <img style="display: none;" id="adulto" src="imagens/happy-1836445_1920.jpg" alt="">
+        <img style="display: none;" id="adulta" src="imagens/woman-657753_1920.jpg" alt="">
+        <img style="display: none;" id="bebe" src="imagens/baby-21998_1920.jpg" alt="">
+        <img style="display: none;" id="idoso" src="imagens/old-man-1147288_1920.jpg" alt="">
+        <img style="display: none;" id="idosa" src="imagens/granny-1280445_1920.jpg" alt="">
+
+        
+
+
+    </div>
+
+    <script>
+
+        let imagem = document.getElementById('imagem')
+        
+        
+
+        function mostrarInfos(){
+            let ano_nascimento = Number(document.getElementById('idades').value)
+            let data = new Date()
+            let ano_atual = data.getFullYear()
+            let idade = Number(ano_atual - ano_nascimento)
+            let sexo = document.querySelector('input[name="botoes"]:checked')
+
+            if (ano_atual >= ano_nascimento && idade <130 && sexo.value != null && idade >= 0) {
+                document.getElementById('texto').innerHTML = `Você é ${sexo.value} e tem ${idade} anos.`;
+                document.getElementById('texto').style.display = 'flex';
+                
+                if (idade < 3){
+                    imagem.src = document.getElementById('bebe').src
+                    imagem.style.display = 'flex';
+                    
+                }
+
+                if (idade >= 3 && idade < 12) {
+                    if (sexo.value == 'homem') {
+                        imagem.src = document.getElementById('crianco').src;
+                        imagem.style.display = 'flex';
+                    } else if (sexo.value == 'mulher') {
+                        imagem.src = document.getElementById('crianca').src;
+                        imagem.style.display = 'flex';
+                    }
+                }
+
+                if (idade >= 12 && idade < 18) {
+                    if (sexo.value == 'homem') {
+                        imagem.src = document.getElementById('garoto').src;
+                        imagem.style.display = 'flex';
+                    } else if (sexo.value == 'mulher') {
+                        imagem.src = document.getElementById('garota').src;
+                        imagem.style.display = 'flex';
+                    }
+                }
+
+                if (idade >= 18 && idade < 55) {
+                    if (sexo.value == 'homem') {
+                        imagem.src = document.getElementById('adulto').src;
+                        imagem.style.display = 'flex';
+                    } else if (sexo.value == 'mulher') {
+                        imagem.src = document.getElementById('adulta').src;
+                        imagem.style.display = 'flex';
+                    }
+                }
+
+                if (idade >=55){
+                    if (sexo.value == 'homem'){
+                        imagem.src = document.getElementById('idoso').src
+                        imagem.style.display = 'flex';
+                    }else if (sexo.value =='mulher'){
+                        imagem.src = document.getElementById('idosa').src
+                        imagem.style.display = 'flex';
+                    }
+
+                }
+
+            }else if(ano_atual < ano_nascimento || idade == '' || sexo.value == null || idade >130 ){
+                alert('[ERRO] Informações inválidas.')
+            }
+
+
+        }
+    </script>
+    
+</body>
+</html>
