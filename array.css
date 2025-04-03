@@ -43,3 +43,10 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+.butao{
+    transition: 0.3s ease-in-out;
+}
+.butao:hover{
+    transform: scale(1.05);
+}
