@@ -1,0 +1,60 @@
+
+main{
+    justify-content: center;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.corpo{
+    height: auto;
+    width: auto;
+    background-color: #1C2842;
+    border: 4px solid #0D1320;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 50px 50px;
+    gap: 50px;
+}
+
+.corpo .tela{
+    background-color: #6F8FE1;
+    width: 90%;
+    border: 2px solid #0D1320;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+    height: 200px;
+    font-size: 30px;
+}
+
+
+.corpo .botoes{
+    width: auto;
+
+}
+.corpo .botoes .numero{
+    height: 100px;
+    width: 100px;
+    background-color: #536EB1;
+    font-size: 25px;
+    border-radius: 50%; 
+    margin-right: 10px;
+}
+
+
+.corpo .botoes .fator{
+    
+    height: 100px;
+    width: 100px;
+    background-color: #0D1320;
+    font-size: 25px;
+    color: white;
+    border-radius: 50%; 
+    margin-right: 10px;
+
+}
