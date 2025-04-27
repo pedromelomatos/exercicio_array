@@ -22,6 +22,17 @@
 
     <script>
         let resultado = document.getElementById('oresultado')
+        let numeros = []
+        let soma = 0
+        let numerodigitado = 0
+        for (let i = 1; i<=3; i++){
+            numerodigitado = Number(prompt(`Digite o ${i}º número:`))
+            numeros.push(numerodigitado)
+        }
+        for (let i = 0; i<=2; i++){
+            soma +=numeros[i]
+        }
+        resultado.innerHTML = `A soma de ${numeros[0]}, ${numeros[1]} e ${numeros[2]} é ${soma}.`
 
 </script>
 </body>
